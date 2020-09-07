@@ -5,8 +5,6 @@ cache: pip
 jobs:
   include:
     - python: "2.7"
-      env: TOX_ENV=py27-dj18-sqlite
-    - python: "2.7"
       env: TOX_ENV=py27-dj19-sqlite
     - python: "2.7"
       env: TOX_ENV=py27-dj110-sqlite
