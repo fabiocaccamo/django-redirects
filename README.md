@@ -1,4 +1,6 @@
-[![](https://img.shields.io/pypi/pyversions/django-redirects.svg?color=blue&logo=python&logoColor=white)](https://www.python.org/)
+[![](https://img.shields.io/pypi/pyversions/django-redirects.svg?color=3776AB&logo=python&logoColor=white)](https://www.python.org/)
+[![](https://img.shields.io/pypi/djversions/django-redirects?color=0C4B33&logo=django&logoColor=white&label=django)](https://www.djangoproject.com/)
+
 [![](https://img.shields.io/pypi/v/django-redirects.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/django-redirects/)
 [![](https://pepy.tech/badge/django-redirects)](https://pepy.tech/project/django-redirects)
 [![](https://img.shields.io/github/stars/fabiocaccamo/django-redirects?logo=github)](https://github.com/fabiocaccamo/django-redirects/)
@@ -6,10 +8,8 @@
 [![](https://img.shields.io/pypi/l/django-redirects.svg?color=blue)](https://github.com/fabiocaccamo/django-redirects/blob/master/LICENSE.txt)
 
 [![](https://img.shields.io/travis/fabiocaccamo/django-redirects?logo=travis&label=build)](https://travis-ci.org/fabiocaccamo/django-redirects)
-[![](https://img.shields.io/circleci/build/gh/fabiocaccamo/django-redirects?logo=circleci&label=build)](https://circleci.com/gh/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codecov/c/gh/fabiocaccamo/django-redirects?logo=codecov)](https://codecov.io/gh/fabiocaccamo/django-redirects)
-[![](https://img.shields.io/codacy/grade/{{package_id}}?logo=codacy)](https://www.codacy.com/app/fabiocaccamo/django-redirects)
-[![](https://img.shields.io/scrutinizer/quality/g/fabiocaccamo/django-redirects?logo=scrutinizer)](https://scrutinizer-ci.com/g/fabiocaccamo/django-redirects/?branch=master)
+[![](https://img.shields.io/codacy/grade/6bc31cfdbc2b463b808bd3dc23a44444?logo=codacy)](https://www.codacy.com/app/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codeclimate/maintainability/fabiocaccamo/django-redirects?logo=code-climate)](https://codeclimate.com/github/fabiocaccamo/django-redirects/)
 [![](https://requires.io/github/fabiocaccamo/django-redirects/requirements.svg?branch=master)](https://requires.io/github/fabiocaccamo/django-redirects/requirements/?branch=master)
 
@@ -23,7 +23,7 @@
 - Custom redirect type: `301`, `302`, `303`, `307`, `308`.
 - Custom redirect match condition: `EXACT`, `PREFIX` or `REGEX`.
 - Regex support, match and replace groups using group reference: `$1`, `$2`, `$3`, ...
-- Hits counter to check requests handled by each redirect.
+- Counter to monitor requests count handled by each redirect.
 - Admin integration with list filters and the possibility to test the redirect.
 
 ## Installation
@@ -65,7 +65,7 @@ Released under [MIT License](LICENSE.txt).
 
 ## See also
 
-- [`django-admin-interface`](https://github.com/fabiocaccamo/django-admin-interface) - the default admin interface made customizable by the admin itself. popup windows replaced by modals. 🧙 ⚡
+- [`django-redirects`](https://github.com/fabiocaccamo/django-redirects) - the default admin interface made customizable by the admin itself. popup windows replaced by modals. 🧙 ⚡
 
 - [`django-colorfield`](https://github.com/fabiocaccamo/django-colorfield) - simple color field for models with a nice color-picker in the admin. 🎨
 
