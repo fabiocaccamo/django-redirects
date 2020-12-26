@@ -65,7 +65,7 @@ Released under [MIT License](LICENSE.txt).
 
 ## See also
 
-- [`django-redirects`](https://github.com/fabiocaccamo/django-redirects) - the default admin interface made customizable by the admin itself. popup windows replaced by modals. 🧙 ⚡
+- [`django-admin-interface`](https://github.com/fabiocaccamo/django-admin-interface) - the default admin interface made customizable by the admin itself. popup windows replaced by modals. 🧙 ⚡
 
 - [`django-colorfield`](https://github.com/fabiocaccamo/django-colorfield) - simple color field for models with a nice color-picker in the admin. 🎨
 
