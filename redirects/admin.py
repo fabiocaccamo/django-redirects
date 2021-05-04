@@ -35,8 +35,11 @@ class RedirectAdmin(admin.ModelAdmin):
 
     def test_display(self, obj):
         css = """
-            font-weight: bold;
-            fonts-size: 20px;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 1em;
+            display: inline-block;
+            padding: 0px 7px 7px 7px;
             """
         if obj.new_path == '' or obj.match == Redirect.MATCH_REGEX:
             css += """
@@ -52,9 +55,9 @@ class RedirectAdmin(admin.ModelAdmin):
     test_display.short_description = _('Test')
     test_display.allow_tags = True
 
-    list_display = ('redirect_display', 'match', 'type_status_code', 'counter', 'status_code', 'test_display', )
+    list_display = ('redirect_display', 'match', 'type_status_code', 'priority', 'counter', 'status_code', 'test_display', )
     list_display_links = ('redirect_display', )
-    list_editable = ('match', 'type_status_code', )
+    list_editable = ('match', 'type_status_code', 'priority', )
     list_filter = ('site', 'match', 'type_status_code', 'status_code', )
     search_fields = ('old_path', 'new_path', )
     save_on_top = True

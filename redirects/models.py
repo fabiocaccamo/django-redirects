@@ -96,6 +96,12 @@ class Redirect(models.Model):
         help_text=_(
             'The redirect http status code.'))
 
+    priority = models.PositiveSmallIntegerField(
+        blank=True,
+        default=0,
+        verbose_name=_('Priority'),
+        help_text=_('Higher priority redirects are evaluated first.'))
+
     counter = models.PositiveIntegerField(
         blank=True,
         default=0,
@@ -154,7 +160,7 @@ class Redirect(models.Model):
 
     class Meta:
         app_label = 'redirects'
-        ordering = ['old_path']
+        ordering = ['-priority', 'old_path']
         unique_together = [['site', 'old_path']]
         verbose_name = _('Redirect')
         verbose_name_plural = _('Redirects')
