@@ -4,7 +4,6 @@ import unittest
 
 
 class test_case(unittest.TestCase):
-
     def test(self):
-        print('tested!')
+        print("tested!")
         pass

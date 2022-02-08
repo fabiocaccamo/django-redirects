@@ -11,6 +11,7 @@
 [![](https://img.shields.io/codecov/c/gh/fabiocaccamo/django-redirects?logo=codecov)](https://codecov.io/gh/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codacy/grade/6bc31cfdbc2b463b808bd3dc23a44444?logo=codacy)](https://www.codacy.com/app/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codeclimate/maintainability/fabiocaccamo/django-redirects?logo=code-climate)](https://codeclimate.com/github/fabiocaccamo/django-redirects/)
+[![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # django-redirects
 
