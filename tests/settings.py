@@ -9,6 +9,7 @@ ALLOWED_HOSTS = ["*"]
 SITE_ID = 1
 
 INSTALLED_APPS = [
+    "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.messages",
     "django.contrib.sites",
@@ -28,6 +29,8 @@ MIDDLEWARE = [
 
 if django.VERSION < (2, 0):
     MIDDLEWARE_CLASSES = MIDDLEWARE
+
+ROOT_URLCONF = "tests.urls"
 
 TEMPLATES = [
     {
