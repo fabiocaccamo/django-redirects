@@ -123,6 +123,20 @@ class Redirect(models.Model):
         verbose_name=_("Status code"),
     )
 
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        editable=False,
+        null=True,
+        verbose_name=_("Created at"),
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        editable=False,
+        null=True,
+        verbose_name=_("Updated at"),
+    )
+
     def _get_response_path_with_match_exact(self, path):
         if self.old_path.lower() == path.lower():
             return self.new_path

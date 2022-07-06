@@ -67,6 +67,8 @@ class RedirectAdmin(admin.ModelAdmin):
         "counter",
         "status_code",
         "test_display",
+        "created_at",
+        "updated_at",
     )
     list_display_links = ("redirect_display",)
     list_editable = (
