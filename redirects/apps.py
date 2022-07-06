@@ -13,6 +13,7 @@ class RedirectsConfig(AppConfig):
 
     name = "redirects"
     verbose_name = _("Redirects")
+    default_auto_field = "django.db.models.AutoField"
 
     def ready(self):
         pass
