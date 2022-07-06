@@ -30,7 +30,7 @@ class RedirectMiddleware(MiddlewareMixin):
         redirects_qs = Redirect.objects.filter(
             (Q(site=current_site) | Q(site__isnull=True)),
             (Q(match=Redirect.MATCH_EXACT) & Q(old_path__iexact=path))
-            | (Q(match=Redirect.MATCH_PREFIX) & Q(old_path__istartswith=path))
+            | Q(match=Redirect.MATCH_PREFIX)
             | Q(match=Redirect.MATCH_REGEX),
         )
         redirects_list = list(redirects_qs)
