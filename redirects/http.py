@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from django.http import (
+    HttpResponseGone,
+    HttpResponsePermanentRedirect,
+    HttpResponseRedirect as HttpResponseTemporaryRedirect,
+)
 from django.http.response import HttpResponseRedirectBase
 
 
