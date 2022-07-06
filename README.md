@@ -61,8 +61,6 @@ python -m django test --settings "tests.settings"
 
 Released under [MIT License](LICENSE.txt).
 
----
-
 ## Supporting
 
 - :star: Star this project on [GitHub](https://github.com/fabiocaccamo/django-redirects)
