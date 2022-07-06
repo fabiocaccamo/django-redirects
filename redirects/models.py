@@ -17,10 +17,10 @@ else:
 from redirects.http import (
     HttpResponseGone,
     HttpResponsePermanentRedirect,
-    HttpResponseStrictPermanentRedirect,
     HttpResponseSeeOtherRedirect,
-    HttpResponseTemporaryRedirect,
+    HttpResponseStrictPermanentRedirect,
     HttpResponseStrictTemporaryRedirect,
+    HttpResponseTemporaryRedirect,
 )
 
 from six import python_2_unicode_compatible
