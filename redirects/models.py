@@ -14,6 +14,10 @@ else:
     from django.utils.encoding import force_str
     from django.utils.translation import gettext_lazy as _
 
+import re
+
+from six import python_2_unicode_compatible
+
 from redirects.http import (
     HttpResponseGone,
     HttpResponsePermanentRedirect,
@@ -22,10 +26,6 @@ from redirects.http import (
     HttpResponseStrictTemporaryRedirect,
     HttpResponseTemporaryRedirect,
 )
-
-from six import python_2_unicode_compatible
-
-import re
 
 
 @python_2_unicode_compatible

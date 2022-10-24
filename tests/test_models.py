@@ -8,11 +8,7 @@ else:
     from django.urls import reverse
 
 from django.http import HttpResponseNotFound
-from django.test import (
-    Client,
-    RequestFactory,
-    TestCase,
-)
+from django.test import Client, RequestFactory, TestCase
 
 from redirects.models import Redirect
 

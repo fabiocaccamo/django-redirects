@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import django
-
 from django.conf import settings
 from django.contrib.auth.models import User
 
@@ -10,10 +9,7 @@ if django.VERSION < (1, 10):
 else:
     from django.urls import reverse
 
-from django.test import (
-    Client,
-    TestCase,
-)
+from django.test import Client, TestCase
 
 from redirects.models import Redirect
 
