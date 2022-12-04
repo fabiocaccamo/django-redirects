@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-from __future__ import unicode_literals
-
 from django.db import migrations, models
 
 
@@ -16,14 +12,18 @@ class Migration(migrations.Migration):
             model_name="redirect",
             name="created_at",
             field=models.DateTimeField(
-                auto_now_add=True, null=True, verbose_name="Created at"
+                auto_now_add=True,
+                null=True,
+                verbose_name="Created at",
             ),
         ),
         migrations.AddField(
             model_name="redirect",
             name="updated_at",
             field=models.DateTimeField(
-                auto_now=True, null=True, verbose_name="Updated at"
+                auto_now=True,
+                null=True,
+                verbose_name="Updated at",
             ),
         ),
     ]
