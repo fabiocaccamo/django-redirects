@@ -56,7 +56,9 @@ setup(
         "prefix",
         "regex",
     ],
-    requires=["django(>=2.2)"],
+    requires=[
+        "django (>= 2.2)",
+    ],
     install_requires=[],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -72,6 +74,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
         "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
