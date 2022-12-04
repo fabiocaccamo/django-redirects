@@ -1,14 +1,6 @@
-# -*- coding: utf-8 -*-
-
-import django
-
-if django.VERSION < (1, 10):
-    from django.core.urlresolvers import reverse
-else:
-    from django.urls import reverse
-
 from django.http import HttpResponseNotFound
 from django.test import Client, RequestFactory, TestCase
+from django.urls import reverse
 
 from redirects.models import Redirect
 

@@ -1,15 +1,7 @@
-# -*- coding: utf-8 -*-
-
-import django
 from django.conf import settings
 from django.contrib.auth.models import User
-
-if django.VERSION < (1, 10):
-    from django.core.urlresolvers import reverse
-else:
-    from django.urls import reverse
-
 from django.test import Client, TestCase
+from django.urls import reverse
 
 from redirects.models import Redirect
 

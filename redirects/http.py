@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.http import HttpResponseGone, HttpResponsePermanentRedirect
 from django.http import HttpResponseRedirect as HttpResponseTemporaryRedirect
 from django.http.response import HttpResponseRedirectBase

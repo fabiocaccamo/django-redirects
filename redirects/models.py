@@ -1,22 +1,10 @@
-# -*- coding: utf-8 -*-
+import re
 
-from __future__ import unicode_literals
-
-import django
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.db import models
-
-if django.VERSION < (2, 0):
-    from django.utils.encoding import force_text as force_str
-    from django.utils.translation import ugettext_lazy as _
-else:
-    from django.utils.encoding import force_str
-    from django.utils.translation import gettext_lazy as _
-
-import re
-
-from six import python_2_unicode_compatible
+from django.utils.encoding import force_str
+from django.utils.translation import gettext_lazy as _
 
 from redirects.http import (
     HttpResponseGone,
@@ -28,7 +16,6 @@ from redirects.http import (
 )
 
 
-@python_2_unicode_compatible
 class Redirect(models.Model):
 
     TYPE_301 = 301

@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-import django
-
 SECRET_KEY = "django-redirects"
 
 ALLOWED_HOSTS = ["*"]
@@ -28,9 +24,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-
-if django.VERSION < (2, 0):
-    MIDDLEWARE_CLASSES = MIDDLEWARE
 
 ROOT_URLCONF = "tests.urls"
 

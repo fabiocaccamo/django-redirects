@@ -1,14 +1,8 @@
-# -*- coding: utf-8 -*-
-
-import django
 from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Q
 
-if django.VERSION < (1, 10):
-    MiddlewareMixin = object
-else:
-    # https://docs.djangoproject.com/en/1.10/topics/http/middleware/#upgrading-pre-django-1-10-style-middleware
-    from django.utils.deprecation import MiddlewareMixin
+# https://docs.djangoproject.com/en/1.10/topics/http/middleware/#upgrading-pre-django-1-10-style-middleware
+from django.utils.deprecation import MiddlewareMixin
 
 from redirects.models import Redirect
 
