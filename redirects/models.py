@@ -174,8 +174,7 @@ class Redirect(models.Model):
         verbose_name_plural = _("Redirects")
 
     def __str__(self):
+        verbose_name = _("Redirect")
         return force_str(
-            "{} {}: {} \n---> {}".format(
-                _("Redirect"), self.type_status_code, self.old_path, self.new_path
-            )
+            f"{verbose_name} {self.type_status_code}: {self.old_path} \n---> {self.new_path}"
         )

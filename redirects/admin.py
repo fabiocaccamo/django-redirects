@@ -8,18 +8,17 @@ from redirects.models import Redirect
 @admin.register(Redirect)
 class RedirectAdmin(admin.ModelAdmin):
     def redirect_display(self, obj):
-        html = """
+        gone = _("(410 Gone)") if obj.new_path == "" else ""
+        html = f"""
             <span style="line-height: 16px;">
                 <span style="display: block; white-space: nowrap; font-weight: normal;">
-                    <small>{}</small>
+                    <small>{obj.old_path}</small>
                 </span>
                 <span style="display: block; white-space: nowrap;">
-                    <span style="color: rgba(0, 0, 0, 0.4);">&searr; {}</span> {}
+                    <span style="color: rgba(0, 0, 0, 0.4);">&searr; {gone}</span> {obj.new_path}
                 </span>
             </span>
-            """.format(
-            obj.old_path, _("(410 Gone)") if obj.new_path == "" else "", obj.new_path
-        )
+            """.strip()
         html = mark_safe(html)
         return html
 
@@ -33,17 +32,15 @@ class RedirectAdmin(admin.ModelAdmin):
             line-height: 1em;
             display: inline-block;
             padding: 0px 7px 7px 7px;
-            """
+            """.strip()
         if obj.new_path == "" or obj.match == Redirect.MATCH_REGEX:
             css += """
                 opacity: 0.2;
                 pointer-events: none;
-                """
-        html = """
-            <a href="{}" target="_blank" style="{}">&nearr;</a>
-            """.format(
-            obj.old_path, css
-        )
+                """.strip()
+        html = f"""
+            <a href="{obj.old_path}" target="_blank" style="{css}">&nearr;</a>
+            """.strip()
         html = mark_safe(html)
         return html
 
