@@ -4,7 +4,6 @@
 [![](https://img.shields.io/pypi/v/django-redirects.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/django-redirects/)
 [![](https://pepy.tech/badge/django-redirects/month)](https://pepy.tech/project/django-redirects)
 [![](https://img.shields.io/github/stars/fabiocaccamo/django-redirects?logo=github)](https://github.com/fabiocaccamo/django-redirects/)
-[![](https://badges.pufler.dev/visits/fabiocaccamo/django-redirects?label=visitors&color=blue)](https://badges.pufler.dev)
 [![](https://img.shields.io/pypi/l/django-redirects.svg?color=blue)](https://github.com/fabiocaccamo/django-redirects/blob/master/LICENSE.txt)
 
 [![](https://results.pre-commit.ci/badge/github/fabiocaccamo/django-redirects/master.svg)](https://results.pre-commit.ci/latest/github/fabiocaccamo/django-redirects/master)
