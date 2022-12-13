@@ -1,5 +1,5 @@
 __author__ = "Fabio Caccamo"
-__copyright__ = "Copyright (c) 2020 Fabio Caccamo"
+__copyright__ = "Copyright (c) 2020-present Fabio Caccamo"
 __description__ = "django redirects as they should be, with full control."
 __email__ = "fabio.caccamo@gmail.com"
 __license__ = "MIT"
