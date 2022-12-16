@@ -7,7 +7,7 @@
 [![](https://img.shields.io/pypi/l/django-redirects.svg?color=blue)](https://github.com/fabiocaccamo/django-redirects/blob/master/LICENSE.txt)
 
 [![](https://results.pre-commit.ci/badge/github/fabiocaccamo/django-redirects/master.svg)](https://results.pre-commit.ci/latest/github/fabiocaccamo/django-redirects/master)
-[![](https://img.shields.io/github/workflow/status/fabiocaccamo/django-redirects/Test%20package?label=build&logo=github)](https://github.com/fabiocaccamo/django-redirects)
+[![](https://img.shields.io/github/actions/workflow/status/fabiocaccamo/django-redirects/test-package.yml?branch=master&label=build&logo=github)](https://github.com/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codecov/c/gh/fabiocaccamo/django-redirects?logo=codecov)](https://codecov.io/gh/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codacy/grade/6bc31cfdbc2b463b808bd3dc23a44444?logo=codacy)](https://www.codacy.com/app/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codeclimate/maintainability/fabiocaccamo/django-redirects?logo=code-climate)](https://codeclimate.com/github/fabiocaccamo/django-redirects/)
