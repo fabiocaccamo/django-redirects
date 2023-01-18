@@ -4,10 +4,10 @@
 [![](https://img.shields.io/pypi/v/django-redirects.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/django-redirects/)
 [![](https://pepy.tech/badge/django-redirects/month)](https://pepy.tech/project/django-redirects)
 [![](https://img.shields.io/github/stars/fabiocaccamo/django-redirects?logo=github)](https://github.com/fabiocaccamo/django-redirects/)
-[![](https://img.shields.io/pypi/l/django-redirects.svg?color=blue)](https://github.com/fabiocaccamo/django-redirects/blob/master/LICENSE.txt)
+[![](https://img.shields.io/pypi/l/django-redirects.svg?color=blue)](https://github.com/fabiocaccamo/django-redirects/blob/main/LICENSE.txt)
 
-[![](https://results.pre-commit.ci/badge/github/fabiocaccamo/django-redirects/master.svg)](https://results.pre-commit.ci/latest/github/fabiocaccamo/django-redirects/master)
-[![](https://img.shields.io/github/actions/workflow/status/fabiocaccamo/django-redirects/test-package.yml?branch=master&label=build&logo=github)](https://github.com/fabiocaccamo/django-redirects)
+[![](https://results.pre-commit.ci/badge/github/fabiocaccamo/django-redirects/main.svg)](https://results.pre-commit.ci/latest/github/fabiocaccamo/django-redirects/main)
+[![](https://img.shields.io/github/actions/workflow/status/fabiocaccamo/django-redirects/test-package.yml?branch=main&label=build&logo=github)](https://github.com/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codecov/c/gh/fabiocaccamo/django-redirects?logo=codecov)](https://codecov.io/gh/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codacy/grade/6bc31cfdbc2b463b808bd3dc23a44444?logo=codacy)](https://www.codacy.com/app/fabiocaccamo/django-redirects)
 [![](https://img.shields.io/codeclimate/maintainability/fabiocaccamo/django-redirects?logo=code-climate)](https://codeclimate.com/github/fabiocaccamo/django-redirects/)
