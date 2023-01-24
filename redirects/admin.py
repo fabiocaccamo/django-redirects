@@ -19,7 +19,7 @@ class RedirectAdmin(admin.ModelAdmin):
                     <span style="color: rgba(0, 0, 0, 0.4);">&searr; {gone}</span> {obj.new_path}
                 </span>
             </span>
-            """.strip()
+            """.strip()  # noqa: E501
         html = mark_safe(html)
         return html
 

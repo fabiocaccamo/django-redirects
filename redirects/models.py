@@ -1,6 +1,5 @@
 import re
 
-from django.conf import settings
 from django.contrib.sites.models import Site
 from django.db import models
 from django.utils.encoding import force_str
@@ -57,7 +56,7 @@ class Redirect(models.Model):
         max_length=255,
         verbose_name=_("Old path"),
         help_text=_(
-            "This can be either an absolute path or a regex (excluding the domain name). "
+            "This can be either an absolute path or a regex (excluding the domain name). "  # noqa: E501
         ),
     )
 
@@ -176,5 +175,6 @@ class Redirect(models.Model):
     def __str__(self):
         verbose_name = _("Redirect")
         return force_str(
-            f"{verbose_name} {self.type_status_code}: {self.old_path} \n---> {self.new_path}"
+            f"{verbose_name} {self.type_status_code}: "
+            f"{self.old_path} \n---> {self.new_path}"
         )

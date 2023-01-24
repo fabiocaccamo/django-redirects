@@ -1,5 +1,7 @@
-from django.http import HttpResponseGone, HttpResponsePermanentRedirect
-from django.http import HttpResponseRedirect as HttpResponseTemporaryRedirect
+from django.http import HttpResponseGone, HttpResponsePermanentRedirect  # noqa: F401
+from django.http import (  # noqa: F401
+    HttpResponseRedirect as HttpResponseTemporaryRedirect,
+)
 from django.http.response import HttpResponseRedirectBase
 
 
