@@ -16,7 +16,6 @@ from redirects.http import (
 
 
 class Redirect(models.Model):
-
     TYPE_301 = 301
     TYPE_302 = 302
     TYPE_303 = 303
