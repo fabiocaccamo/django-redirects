@@ -116,12 +116,12 @@ class ModelsTestCase(TestCase):
         response = self._client.get("/obsolete-match-prefix/page-301/")
         self.assertTrue(isinstance(response, HttpResponseNotFound))
 
-    def test_redirect_301_url_and_status_code(self):
+    def test_redirect_hits_counter(self):
         redirect_obj = Redirect.objects.create(
             old_path="/obsolete/page-counter/",
             new_path=reverse("redirected-301"),
             type_status_code=Redirect.TYPE_301,
         )
         for i in range(0, 5):
-            response = self._client.get("/obsolete/page-counter/")
+            self._client.get("/obsolete/page-counter/")
         self.assertEqual(Redirect.objects.get(pk=redirect_obj.pk).counter, 5)
