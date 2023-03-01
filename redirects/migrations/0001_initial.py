@@ -26,7 +26,10 @@ class Migration(migrations.Migration):
                     "old_path",
                     models.CharField(
                         db_index=True,
-                        help_text="This can be either an absolute path or a regex (excluding the domain name). ",  # noqa: E501
+                        help_text=(
+                            "This can be either an absolute path or a regex "
+                            "(excluding the domain name). "
+                        ),
                         max_length=255,
                         verbose_name="Old path",
                     ),
@@ -35,7 +38,11 @@ class Migration(migrations.Migration):
                     "new_path",
                     models.CharField(
                         blank=True,
-                        help_text='This can be either an absolute path, an absolute URL, or a regex. If empty a "410 Gone" response will be returned.',  # noqa: E501
+                        help_text=(
+                            "This can be either an absolute path, "
+                            "an absolute URL, or a regex. "
+                            'If empty a "410 Gone" response will be returned.'
+                        ),
                         max_length=255,
                         verbose_name="New path",
                     ),

@@ -122,6 +122,6 @@ class ModelsTestCase(TestCase):
             new_path=reverse("redirected-301"),
             type_status_code=Redirect.TYPE_301,
         )
-        for i in range(0, 5):
+        for _ in range(0, 5):
             self._client.get("/obsolete/page-counter/")
         self.assertEqual(Redirect.objects.get(pk=redirect_obj.pk).counter, 5)

@@ -1,3 +1,5 @@
+# flake8: noqa: B950
+
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _

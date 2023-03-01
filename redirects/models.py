@@ -55,7 +55,8 @@ class Redirect(models.Model):
         max_length=255,
         verbose_name=_("Old path"),
         help_text=_(
-            "This can be either an absolute path or a regex (excluding the domain name). "  # noqa: E501
+            "This can be either an absolute path or a regex "
+            "(excluding the domain name). "
         ),
     )
 
