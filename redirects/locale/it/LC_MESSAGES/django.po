@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Fabio Caccamo <fabio.caccamo@gmail.com>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-redirects\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-14 01:18+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Fabio Caccamo <fabio.caccamo@gmail.com>\n"
+"Language-Team: Italian <LL@li.org>\n"
+"Language: Italian \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: redirects/admin.py redirects/models.py
+msgid "Redirect"
+msgstr ""
+
+#: redirects/admin.py
+msgid "(410 Gone)"
+msgstr "(410 Rimosso)"
+
+#: redirects/admin.py
+msgid "Test"
+msgstr "Test"
+
+#: redirects/apps.py redirects/models.py
+msgid "Redirects"
+msgstr "Reindirizzamenti"
+
+#: redirects/models.py
+msgid "301 - Permanent"
+msgstr "301 - Permanente"
+
+#: redirects/models.py
+msgid "302 - Found"
+msgstr "302 - Spostato Temporaneamente"
+
+#: redirects/models.py
+msgid "303 - See Other"
+msgstr "303 - Altro"
+
+#: redirects/models.py
+msgid "307 - Temporary"
+msgstr "307 - Temporaneo"
+
+#: redirects/models.py
+msgid "308 - Permanent"
+msgstr "308 - Permanente"
+
+#: redirects/models.py
+msgid "Exact"
+msgstr "Esatto"
+
+#: redirects/models.py
+msgid "Prefix"
+msgstr "Prefisso"
+
+#: redirects/models.py
+msgid "Regex"
+msgstr "Espressione regolare"
+
+#: redirects/models.py
+msgid "Site"
+msgstr "Sito"
+
+#: redirects/models.py
+msgid "Old path"
+msgstr "Vecchio percorso"
+
+#: redirects/models.py
+msgid ""
+"This can be either an absolute path or a regex (excluding the domain name). "
+msgstr ""
+"Questo può essere un percorso assoluto o un espressione regolare (senza il dominio). "
+
+#: redirects/models.py
+msgid "New path"
+msgstr "Nuovo percorso"
+
+#: redirects/models.py
+msgid ""
+"This can be either an absolute path, an absolute URL, or a regex. "
+"If empty a \"410 Gone\" response will be returned."
+msgstr ""
+"Questo può essere un percorso assoluto, un URL assoluto o un espressione regolare (senza il dominio). "
+"Se lasciato vuoto, sarà restituita una risposta con codice \"410 Rimosso\"."
+
+#: redirects/models.py
+msgid "Match"
+msgstr "Corrispondenza"
+
+#: redirects/models.py
+msgid "The redirect match condition."
+msgstr "La condizione di corrispondenza per il reindirizzamento."
+
+#: redirects/models.py
+msgid "Type"
+msgstr "Tipo"
+
+#: redirects/models.py
+msgid "The redirect http status code."
+msgstr "Il codice di stato http del reindirizzamento."
+
+#: redirects/models.py
+msgid "Priority"
+msgstr "Priorità"
+
+#: redirects/models.py
+msgid "Higher priority redirects are evaluated first."
+msgstr "I reindirizzamenti con priorità più alta vengono valutati per primi."
+
+#: redirects/models.py
+msgid "Counter"
+msgstr "Contatore"
+
+#: redirects/models.py
+msgid "The redirect requests/responses count."
+msgstr "Il contatore delle richieste/risposte del reindirizzamento."
+
+#: redirects/models.py
+msgid "Status code"
+msgstr "Codice di stato"
+
+#: redirects/models.py
+msgid "Created at"
+msgstr "Creato il"
+
+#: redirects/models.py
+msgid "Updated at"
+msgstr "Aggiornato il"
