@@ -3,7 +3,7 @@
 
 [![](https://img.shields.io/pypi/v/django-redirects.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/django-redirects/)
 [![](https://static.pepy.tech/badge/django-redirects/month)](https://pepy.tech/project/django-redirects)
-[![](https://img.shields.io/github/stars/fabiocaccamo/django-redirects?logo=github)](https://github.com/fabiocaccamo/django-redirects/stargazers)
+[![](https://img.shields.io/github/stars/fabiocaccamo/django-redirects?logo=github&style=flat)](https://github.com/fabiocaccamo/django-redirects/stargazers)
 [![](https://img.shields.io/pypi/l/django-redirects.svg?color=blue)](https://github.com/fabiocaccamo/django-redirects/blob/main/LICENSE.txt)
 
 [![](https://results.pre-commit.ci/badge/github/fabiocaccamo/django-redirects/main.svg)](https://results.pre-commit.ci/latest/github/fabiocaccamo/django-redirects/main)
