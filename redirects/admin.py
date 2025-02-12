@@ -7,6 +7,7 @@ from redirects.models import Redirect
 
 @admin.register(Redirect)
 class RedirectAdmin(admin.ModelAdmin):
+    @admin.display(description=_("Redirect"))
     def redirect_display(self, obj):
         gone = _("(410 Gone)") if obj.new_path == "" else ""
         html = f"""
@@ -22,8 +23,7 @@ class RedirectAdmin(admin.ModelAdmin):
         html = mark_safe(html)
         return html
 
-    redirect_display.short_description = _("Redirect")
-
+    @admin.display(description=_("Test"))
     def test_display(self, obj):
         css = """
             font-weight: normal;
@@ -42,8 +42,6 @@ class RedirectAdmin(admin.ModelAdmin):
             """.strip()
         html = mark_safe(html)
         return html
-
-    test_display.short_description = _("Test")
 
     list_display = (
         "redirect_display",
