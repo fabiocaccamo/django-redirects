@@ -125,3 +125,19 @@ class ModelsTestCase(TestCase):
         for _ in range(0, 5):
             self._client.get("/obsolete/page-counter/")
         self.assertEqual(Redirect.objects.get(pk=redirect_obj.pk).counter, 5)
+
+    def test_redirect_long_paths(self):
+        """
+        Test that Redirect model handles long old_path and new_path values.
+        """
+        long_old_path = "/" + "a" * 2040 + "/"
+        long_new_path = "/" + "b" * 2040 + "/"
+        Redirect.objects.create(
+            old_path=long_old_path,
+            new_path=long_new_path,
+            type_status_code=Redirect.TYPE_301,
+        )
+        response = self._client.get(long_old_path)
+        self.assertEqual(response.status_code, 301)
+        redirect_obj = Redirect.objects.get(old_path=long_old_path)
+        self.assertEqual(redirect_obj.new_path, long_new_path)
