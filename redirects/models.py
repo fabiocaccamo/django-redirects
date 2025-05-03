@@ -52,7 +52,7 @@ class Redirect(models.Model):
 
     old_path = models.CharField(
         db_index=True,
-        max_length=255,
+        max_length=2048,
         verbose_name=_("Old path"),
         help_text=_(
             "This can be either an absolute path or a regex "
@@ -61,7 +61,7 @@ class Redirect(models.Model):
     )
 
     new_path = models.CharField(
-        max_length=255,
+        max_length=2048,
         blank=True,
         verbose_name=_("New path"),
         help_text=_(
