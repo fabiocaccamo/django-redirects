@@ -109,6 +109,13 @@ class Redirect(models.Model):
         verbose_name=_("Status code"),
     )
 
+    note = models.TextField(
+        blank=True,
+        default="",
+        verbose_name=_("Notes"),
+        help_text=_("A helpful note reminding us why this redirect exists"),
+    )
+
     created_at = models.DateTimeField(
         auto_now_add=True,
         editable=False,

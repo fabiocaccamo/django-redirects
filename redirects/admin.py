@@ -51,6 +51,7 @@ class RedirectAdmin(admin.ModelAdmin):
         "counter",
         "status_code",
         "test_display",
+        "note",
         "created_at",
         "updated_at",
     )
