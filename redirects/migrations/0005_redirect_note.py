@@ -4,15 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('redirects', '0004_alter_redirect_new_path_alter_redirect_old_path'),
+        ("redirects", "0004_alter_redirect_new_path_alter_redirect_old_path"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='redirect',
-            name='note',
-            field=models.TextField(blank=True, default='', help_text='A helpful note reminding us why this redirect exists', verbose_name='Notes'),
+            model_name="redirect",
+            name="note",
+            field=models.TextField(
+                blank=True,
+                default="",
+                help_text="A helpful note reminding us why this redirect exists",
+                verbose_name="Notes",
+            ),
         ),
     ]

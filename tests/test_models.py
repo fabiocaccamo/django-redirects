@@ -141,3 +141,19 @@ class ModelsTestCase(TestCase):
         self.assertEqual(response.status_code, 301)
         redirect_obj = Redirect.objects.get(old_path=long_old_path)
         self.assertEqual(redirect_obj.new_path, long_new_path)
+
+    def test_redirect_with_note(self):
+        """
+        Test that a redirect can be created with a note.
+        """
+        note_text = "This redirect exists because the old product page was moved"
+        redirect_obj = Redirect.objects.create(
+            old_path="/old-product/",
+            new_path="/new-product/",
+            type_status_code=Redirect.TYPE_301,
+            note=note_text,
+        )
+        self.assertEqual(redirect_obj.note, note_text)
+        # Test that redirect still works normally with a note
+        response = self._client.get("/old-product/")
+        self.assertEqual(response.status_code, 301)
