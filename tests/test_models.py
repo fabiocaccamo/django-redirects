@@ -151,9 +151,9 @@ class ModelsTestCase(TestCase):
             old_path="/old-product/",
             new_path="/new-product/",
             type_status_code=Redirect.TYPE_301,
-            note=note_text,
+            notes=note_text,
         )
-        self.assertEqual(redirect_obj.note, note_text)
+        self.assertEqual(redirect_obj.notes, note_text)
         # Test that redirect still works normally with a note
         response = self._client.get("/old-product/")
         self.assertEqual(response.status_code, 301)

@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name="redirect",
-            name="note",
+            name="notes",
             field=models.TextField(
                 blank=True,
                 default="",

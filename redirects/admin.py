@@ -10,6 +10,13 @@ class RedirectAdmin(admin.ModelAdmin):
     @admin.display(description=_("Redirect"))
     def redirect_display(self, obj):
         gone = _("(410 Gone)") if obj.new_path == "" else ""
+        notes_span = ""
+        if obj.notes:
+            notes_span = (
+                f'<span style="display: block; font-size: 11px; font-weight: normal; '
+                f'margin-top: 6px; font-style: italic; opacity: 0.5;">'
+                f"{obj.notes}</span>"
+            )
         html = f"""
             <span style="line-height: 16px;">
                 <span style="display: block; white-space: nowrap; font-weight: normal;">
@@ -18,6 +25,7 @@ class RedirectAdmin(admin.ModelAdmin):
                 <span style="display: block; white-space: nowrap;">
                     <span style="color: rgba(0, 0, 0, 0.4);">&searr; {gone}</span> {obj.new_path}
                 </span>
+                {notes_span}
             </span>
             """.strip()  # noqa: E501
         html = mark_safe(html)
@@ -51,7 +59,6 @@ class RedirectAdmin(admin.ModelAdmin):
         "counter",
         "status_code",
         "test_display",
-        "note",
         "created_at",
         "updated_at",
     )
@@ -70,5 +77,6 @@ class RedirectAdmin(admin.ModelAdmin):
     search_fields = (
         "old_path",
         "new_path",
+        "notes",
     )
     save_on_top = True
