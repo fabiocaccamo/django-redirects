@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             field=models.TextField(
                 blank=True,
                 default="",
-                help_text="A helpful note reminding us why this redirect exists",
+                help_text="Helpful notes reminding us why this redirect exists",
                 verbose_name="Notes",
             ),
         ),
