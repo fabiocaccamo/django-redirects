@@ -26,6 +26,27 @@ class ModelsTestCase(TestCase):
         self.assertEqual(Redirect.MATCH_PREFIX, "prefix")
         self.assertEqual(Redirect.MATCH_REGEX, "regex")
 
+    def test_redirect_match_with_valid_regex(self):
+        Redirect.objects.create(
+            old_path=r"^/obsolete-(\d+)/$",
+            new_path=r"/redirected-$1/",
+            type_status_code=Redirect.TYPE_301,
+            match=Redirect.MATCH_REGEX,
+        )
+        response = self._client.get("/obsolete-301/")
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response.url, "/redirected-301/")
+
+    def test_redirect_match_with_invalid_regex(self):
+        Redirect.objects.create(
+            old_path=r"^/obsolete-[/$",  # invalid regex
+            new_path=r"/redirected-302/",
+            type_status_code=Redirect.TYPE_302,
+            match=Redirect.MATCH_REGEX,
+        )
+        response = self._client.get("/obsolete-302/")
+        self.assertEqual(response.status_code, 404)
+
     def test_redirect_301_url_and_status_code(self):
         Redirect.objects.create(
             old_path="/obsolete/page-301/",
