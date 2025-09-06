@@ -157,3 +157,24 @@ class ModelsTestCase(TestCase):
         # Test that redirect still works normally with a note
         response = self._client.get("/old-product/")
         self.assertEqual(response.status_code, 301)
+
+    def test_redirect_match_regex(self):
+        Redirect.objects.create(
+            old_path=r"/obsolete-match-regex-(\d+)/",
+            new_path=reverse("redirected-301"),
+            type_status_code=Redirect.TYPE_301,
+            match=Redirect.MATCH_REGEX,
+        )
+        response = self._client.get("/obsolete-match-regex-123/")
+        self.assertEqual(response.url, reverse("redirected-301"))
+        self.assertEqual(response.status_code, 301)
+
+    def test_redirect_match_regex_with_invalid_regex(self):
+        Redirect.objects.create(
+            old_path=r"/obsolete-match-invalid-[",  # Invalid regex - unclosed bracket
+            new_path=reverse("redirected-301"),
+            type_status_code=Redirect.TYPE_301,
+            match=Redirect.MATCH_REGEX,
+        )
+        response = self._client.get("/obsolete-match-invalid-test/")
+        self.assertTrue(isinstance(response, HttpResponseNotFound))
