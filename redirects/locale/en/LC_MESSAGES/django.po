@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-redirects\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-14 01:20+0100\n"
+"POT-Creation-Date: 2025-09-06 22:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,6 +123,14 @@ msgstr ""
 
 #: redirects/models.py
 msgid "Status code"
+msgstr ""
+
+#: redirects/models.py
+msgid "Notes"
+msgstr ""
+
+#: redirects/models.py
+msgid "Helpful notes reminding us why this redirect exists"
 msgstr ""
 
 #: redirects/models.py

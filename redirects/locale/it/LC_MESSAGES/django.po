@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-redirects\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-14 01:18+0100\n"
+"POT-Creation-Date: 2025-09-06 22:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Fabio Caccamo <fabio.caccamo@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: redirects/admin.py redirects/models.py
 msgid "Redirect"
 msgstr ""
@@ -77,7 +78,8 @@ msgstr "Vecchio percorso"
 msgid ""
 "This can be either an absolute path or a regex (excluding the domain name). "
 msgstr ""
-"Questo può essere un percorso assoluto o un espressione regolare (senza il dominio). "
+"Questo può essere un percorso assoluto o un espressione regolare (senza il "
+"dominio). "
 
 #: redirects/models.py
 msgid "New path"
@@ -85,11 +87,12 @@ msgstr "Nuovo percorso"
 
 #: redirects/models.py
 msgid ""
-"This can be either an absolute path, an absolute URL, or a regex. "
-"If empty a \"410 Gone\" response will be returned."
+"This can be either an absolute path, an absolute URL, or a regex. If empty a "
+"\"410 Gone\" response will be returned."
 msgstr ""
-"Questo può essere un percorso assoluto, un URL assoluto o un espressione regolare (senza il dominio). "
-"Se lasciato vuoto, sarà restituita una risposta con codice \"410 Rimosso\"."
+"Questo può essere un percorso assoluto, un URL assoluto o un espressione "
+"regolare (senza il dominio). Se lasciato vuoto, sarà restituita una risposta "
+"con codice \"410 Rimosso\"."
 
 #: redirects/models.py
 msgid "Match"
@@ -126,6 +129,14 @@ msgstr "Il contatore delle richieste/risposte del reindirizzamento."
 #: redirects/models.py
 msgid "Status code"
 msgstr "Codice di stato"
+
+#: redirects/models.py
+msgid "Notes"
+msgstr ""
+
+#: redirects/models.py
+msgid "Helpful notes reminding us why this redirect exists"
+msgstr ""
 
 #: redirects/models.py
 msgid "Created at"
