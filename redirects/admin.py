@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.utils.html import format_html, mark_safe
+from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
 from redirects.models import Redirect
@@ -10,7 +10,7 @@ class RedirectAdmin(admin.ModelAdmin):
     @admin.display(description=_("Redirect"))
     def redirect_display(self, obj):
         gone = _("(410 Gone)") if obj.new_path == "" else ""
-        notes_html = mark_safe("")
+        notes_html = ""
         if obj.notes:
             notes_css = (
                 "display:block;font-size:11px;font-weight:normal;"
