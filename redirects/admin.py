@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.utils.safestring import mark_safe
+from django.utils.html import format_html, mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from redirects.models import Redirect
@@ -10,52 +10,44 @@ class RedirectAdmin(admin.ModelAdmin):
     @admin.display(description=_("Redirect"))
     def redirect_display(self, obj):
         gone = _("(410 Gone)") if obj.new_path == "" else ""
-        notes_html = ""
+        notes_html = mark_safe("")
         if obj.notes:
-            notes_css = """
-                display: block;
-                font-size: 11px;
-                font-weight: normal;
-                margin-top: 6px;
-                font-style: italic;
-                opacity: 0.5;
-                """.strip()
-            notes_html = f"""
-                <span style="{notes_css}">{obj.notes}</span>
-                """.strip()
-        html = f"""
-            <span style="line-height: 16px;">
-                <span style="display: block; white-space: nowrap; font-weight: normal;">
-                    <small>{obj.old_path}</small>
-                </span>
-                <span style="display: block; white-space: nowrap;">
-                    <span style="color: rgba(0, 0, 0, 0.4);">&searr; {gone}</span> {obj.new_path}
-                </span>
-                {notes_html}
-            </span>
-            """.strip()  # noqa: E501
-        html = mark_safe(html)
-        return html
+            notes_css = (
+                "display:block;font-size:11px;font-weight:normal;"
+                "margin-top:6px;font-style:italic;opacity:0.5;"
+            )
+            notes_html = format_html(
+                '<span style="{}">{}</span>', notes_css, obj.notes
+            )
+        return format_html(
+            '<span style="line-height:16px;">'
+            '<span style="display:block;white-space:nowrap;font-weight:normal;">'
+            "<small>{}</small>"
+            "</span>"
+            '<span style="display:block;white-space:nowrap;">'
+            '<span style="color:rgba(0,0,0,0.4);">&searr; {}</span> {}'
+            "</span>"
+            "{}"
+            "</span>",
+            obj.old_path,
+            gone,
+            obj.new_path,
+            notes_html,
+        )
 
     @admin.display(description=_("Test"))
     def test_display(self, obj):
-        css = """
-            font-weight: normal;
-            font-size: 20px;
-            line-height: 1em;
-            display: inline-block;
-            padding: 0px 7px 7px 7px;
-            """.strip()
+        css = (
+            "font-weight:normal;font-size:20px;line-height:1em;"
+            "display:inline-block;padding:0px 7px 7px 7px;"
+        )
         if obj.new_path == "" or obj.match == Redirect.MATCH_REGEX:
-            css += """
-                opacity: 0.2;
-                pointer-events: none;
-                """.strip()
-        html = f"""
-            <a href="{obj.old_path}" target="_blank" style="{css}">&nearr;</a>
-            """.strip()
-        html = mark_safe(html)
-        return html
+            css += "opacity:0.2;pointer-events:none;"
+        return format_html(
+            '<a href="{}" target="_blank" style="{}">&nearr;</a>',
+            obj.old_path,
+            css,
+        )
 
     list_display = (
         "redirect_display",
