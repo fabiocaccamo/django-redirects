@@ -42,7 +42,7 @@ class AdminTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_admin_changelist_escapes_html_in_notes(self):
-        xss = '<script>alert(1)</script>'
+        xss = "<script>alert(1)</script>"
         Redirect.objects.create(
             old_path="/xss-notes/",
             new_path=reverse("redirected-301"),
@@ -55,7 +55,7 @@ class AdminTestCase(TestCase):
         self.assertNotIn(xss, response.content.decode())
 
     def test_admin_changelist_escapes_html_in_old_path(self):
-        xss = '<script>alert(1)</script>'
+        xss = "<script>alert(1)</script>"
         Redirect.objects.create(
             old_path=f"/xss/{xss}/",
             new_path=reverse("redirected-301"),
@@ -67,7 +67,7 @@ class AdminTestCase(TestCase):
         self.assertNotIn(xss, response.content.decode())
 
     def test_admin_changelist_escapes_html_in_new_path(self):
-        xss = '<script>alert(1)</script>'
+        xss = "<script>alert(1)</script>"
         Redirect.objects.create(
             old_path="/xss-new-path/",
             new_path=xss,
@@ -79,7 +79,7 @@ class AdminTestCase(TestCase):
         self.assertNotIn(xss, response.content.decode())
 
     def test_admin_test_display_unsafe_old_path_renders_span(self):
-        redirect = Redirect.objects.create(
+        Redirect.objects.create(
             old_path="javascript:alert(1)",
             new_path=reverse("redirected-301"),
             type_status_code=Redirect.TYPE_301,
