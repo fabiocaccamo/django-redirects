@@ -53,18 +53,11 @@ class RedirectAdmin(admin.ModelAdmin):
             padding: 0px 7px 7px 7px;
             """.strip()
         disabled = obj.new_path == "" or obj.match == Redirect.MATCH_REGEX
-        if disabled:
-            css += """
-                opacity: 0.2;
-                pointer-events: none;
-                """.strip()
-            return format_html('<span style="{}">&nearr;</span>', css)
-        safe_old_path = obj.old_path if obj.old_path.startswith("/") else None
-        if safe_old_path is None:
+        if disabled or not obj.old_path.startswith("/"):
             return format_html('<span style="{}">&nearr;</span>', css)
         return format_html(
             '<a href="{}" target="_blank" style="{}">&nearr;</a>',
-            safe_old_path,
+            obj.old_path,
             css,
         )
 

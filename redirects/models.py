@@ -131,9 +131,7 @@ class Redirect(models.Model):
     )
 
     def _get_response_path_with_match_exact(self, path):
-        if self.old_path.lower() == path.lower():
-            return self.new_path
-        return None
+        return self.new_path
 
     def _get_response_path_with_match_prefix(self, path):
         if path.lower().startswith(self.old_path.lower()):
@@ -143,13 +141,12 @@ class Redirect(models.Model):
     def _get_response_path_with_match_regex(self, path):
         try:
             old_path_re = re.compile(self.old_path, re.IGNORECASE)
+            if re.match(old_path_re, path):
+                new_path_repl = self.new_path.replace("$", "\\")
+                return re.sub(old_path_re, new_path_repl, path)
         except re.error:
             # invalid regex
-            return None
-        old_path_match = re.match(old_path_re, path)
-        if old_path_match:
-            new_path_repl = self.new_path.replace("$", "\\")
-            return re.sub(old_path_re, new_path_repl, path)
+            pass
         return None
 
     def get_response_path(self, path):
@@ -157,9 +154,8 @@ class Redirect(models.Model):
             return self._get_response_path_with_match_exact(path)
         elif self.match == Redirect.MATCH_PREFIX:
             return self._get_response_path_with_match_prefix(path)
-        elif self.match == Redirect.MATCH_REGEX:
+        else:
             return self._get_response_path_with_match_regex(path)
-        return None
 
     def get_response(self, path):
         response_path = self.get_response_path(path)
@@ -167,10 +163,8 @@ class Redirect(models.Model):
             return None
         self.counter += 1
         self.save()
-        if response_path == "":
-            return HttpResponseGone()
         response_class = Redirect.TYPE_RESPONSE_CLASS.get(self.type_status_code)
-        return response_class(response_path)
+        return response_class(response_path) if response_path else HttpResponseGone()
 
     class Meta:
         app_label = "redirects"
