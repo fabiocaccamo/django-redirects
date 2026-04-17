@@ -40,3 +40,51 @@ class AdminTestCase(TestCase):
         url = reverse("admin:redirects_redirect_delete", args=(self._redirect.id,))
         response = self._client.get(url)
         self.assertEqual(response.status_code, 200)
+
+    def test_admin_changelist_escapes_html_in_notes(self):
+        xss = '<script>alert(1)</script>'
+        Redirect.objects.create(
+            old_path="/xss-notes/",
+            new_path=reverse("redirected-301"),
+            notes=xss,
+            type_status_code=Redirect.TYPE_301,
+        )
+        url = reverse("admin:redirects_redirect_changelist")
+        response = self._client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(xss, response.content.decode())
+
+    def test_admin_changelist_escapes_html_in_old_path(self):
+        xss = '<script>alert(1)</script>'
+        Redirect.objects.create(
+            old_path=f"/xss/{xss}/",
+            new_path=reverse("redirected-301"),
+            type_status_code=Redirect.TYPE_301,
+        )
+        url = reverse("admin:redirects_redirect_changelist")
+        response = self._client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(xss, response.content.decode())
+
+    def test_admin_changelist_escapes_html_in_new_path(self):
+        xss = '<script>alert(1)</script>'
+        Redirect.objects.create(
+            old_path="/xss-new-path/",
+            new_path=xss,
+            type_status_code=Redirect.TYPE_301,
+        )
+        url = reverse("admin:redirects_redirect_changelist")
+        response = self._client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(xss, response.content.decode())
+
+    def test_admin_test_display_unsafe_old_path_renders_span(self):
+        redirect = Redirect.objects.create(
+            old_path="javascript:alert(1)",
+            new_path=reverse("redirected-301"),
+            type_status_code=Redirect.TYPE_301,
+        )
+        url = reverse("admin:redirects_redirect_changelist")
+        response = self._client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn('href="javascript:', response.content.decode())

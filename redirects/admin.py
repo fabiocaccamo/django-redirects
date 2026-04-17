@@ -52,14 +52,19 @@ class RedirectAdmin(admin.ModelAdmin):
             display: inline-block;
             padding: 0px 7px 7px 7px;
             """.strip()
-        if obj.new_path == "" or obj.match == Redirect.MATCH_REGEX:
+        disabled = obj.new_path == "" or obj.match == Redirect.MATCH_REGEX
+        if disabled:
             css += """
                 opacity: 0.2;
                 pointer-events: none;
                 """.strip()
+            return format_html('<span style="{}">&nearr;</span>', css)
+        safe_old_path = obj.old_path if obj.old_path.startswith("/") else None
+        if safe_old_path is None:
+            return format_html('<span style="{}">&nearr;</span>', css)
         return format_html(
             '<a href="{}" target="_blank" style="{}">&nearr;</a>',
-            obj.old_path,
+            safe_old_path,
             css,
         )
 
