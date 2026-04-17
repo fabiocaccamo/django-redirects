@@ -12,23 +12,31 @@ class RedirectAdmin(admin.ModelAdmin):
         gone = _("(410 Gone)") if obj.new_path == "" else ""
         notes_html = ""
         if obj.notes:
-            notes_css = (
-                "display:block;font-size:11px;font-weight:normal;"
-                "margin-top:6px;font-style:italic;opacity:0.5;"
-            )
+            notes_css = """
+                display: block;
+                font-size: 11px;
+                font-weight: normal;
+                margin-top: 6px;
+                font-style: italic;
+                opacity: 0.5;
+                """.strip()
             notes_html = format_html(
-                '<span style="{}">{}</span>', notes_css, obj.notes
+                '<span style="{}">{}</span>',
+                notes_css,
+                obj.notes,
             )
         return format_html(
-            '<span style="line-height:16px;">'
-            '<span style="display:block;white-space:nowrap;font-weight:normal;">'
-            "<small>{}</small>"
-            "</span>"
-            '<span style="display:block;white-space:nowrap;">'
-            '<span style="color:rgba(0,0,0,0.4);">&searr; {}</span> {}'
-            "</span>"
-            "{}"
-            "</span>",
+            """
+            <span style="line-height: 16px;">
+                <span style="display: block; white-space: nowrap; font-weight: normal;">
+                    <small>{}</small>
+                </span>
+                <span style="display: block; white-space: nowrap;">
+                    <span style="color: rgba(0, 0, 0, 0.4);">&searr; {}</span> {}
+                </span>
+                {}
+            </span>
+            """.strip(),  # noqa: E501
             obj.old_path,
             gone,
             obj.new_path,
@@ -37,12 +45,18 @@ class RedirectAdmin(admin.ModelAdmin):
 
     @admin.display(description=_("Test"))
     def test_display(self, obj):
-        css = (
-            "font-weight:normal;font-size:20px;line-height:1em;"
-            "display:inline-block;padding:0px 7px 7px 7px;"
-        )
+        css = """
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 1em;
+            display: inline-block;
+            padding: 0px 7px 7px 7px;
+            """.strip()
         if obj.new_path == "" or obj.match == Redirect.MATCH_REGEX:
-            css += "opacity:0.2;pointer-events:none;"
+            css += """
+                opacity: 0.2;
+                pointer-events: none;
+                """.strip()
         return format_html(
             '<a href="{}" target="_blank" style="{}">&nearr;</a>',
             obj.old_path,
