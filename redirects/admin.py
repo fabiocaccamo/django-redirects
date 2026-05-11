@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.utils.safestring import mark_safe
+from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
 from redirects.models import Redirect
@@ -20,22 +20,28 @@ class RedirectAdmin(admin.ModelAdmin):
                 font-style: italic;
                 opacity: 0.5;
                 """.strip()
-            notes_html = f"""
-                <span style="{notes_css}">{obj.notes}</span>
-                """.strip()
-        html = f"""
+            notes_html = format_html(
+                '<span style="{}">{}</span>',
+                notes_css,
+                obj.notes,
+            )
+        return format_html(
+            """
             <span style="line-height: 16px;">
                 <span style="display: block; white-space: nowrap; font-weight: normal;">
-                    <small>{obj.old_path}</small>
+                    <small>{}</small>
                 </span>
                 <span style="display: block; white-space: nowrap;">
-                    <span style="color: rgba(0, 0, 0, 0.4);">&searr; {gone}</span> {obj.new_path}
+                    <span style="color: rgba(0, 0, 0, 0.4);">&searr; {}</span> {}
                 </span>
-                {notes_html}
+                {}
             </span>
-            """.strip()  # noqa: E501
-        html = mark_safe(html)
-        return html
+            """.strip(),  # noqa: E501
+            obj.old_path,
+            gone,
+            obj.new_path,
+            notes_html,
+        )
 
     @admin.display(description=_("Test"))
     def test_display(self, obj):
@@ -46,16 +52,14 @@ class RedirectAdmin(admin.ModelAdmin):
             display: inline-block;
             padding: 0px 7px 7px 7px;
             """.strip()
-        if obj.new_path == "" or obj.match == Redirect.MATCH_REGEX:
-            css += """
-                opacity: 0.2;
-                pointer-events: none;
-                """.strip()
-        html = f"""
-            <a href="{obj.old_path}" target="_blank" style="{css}">&nearr;</a>
-            """.strip()
-        html = mark_safe(html)
-        return html
+        disabled = obj.new_path == "" or obj.match == Redirect.MATCH_REGEX
+        if disabled or not obj.old_path.startswith("/"):
+            return format_html('<span style="{}">&nearr;</span>', css)
+        return format_html(
+            '<a href="{}" target="_blank" style="{}">&nearr;</a>',
+            obj.old_path,
+            css,
+        )
 
     list_display = (
         "redirect_display",
