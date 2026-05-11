@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.0](https://github.com/fabiocaccamo/django-redirects/releases/tag/0.10.0) - 2026-05-11
+-   Add `Python 3.14` support.
+-   Add `Django 6.0` support.
+-   Drop `Django < 4.2` support. #152
+-   Fix XSS vulnerabilities in admin display methods. #151
+-   Add `OpenSSF Scorecard` workflow.
+-   Bump `pre-commit` hooks.
+-   Bump requirements.
+
 ## [0.9.0](https://github.com/fabiocaccamo/django-redirects/releases/tag/0.9.0) - 2025-09-06
 -   Add `notes` field to `Redirect` model for documentation purposes. (by [@heysamtexas](https://github.com/heysamtexas) in #131)
 -   Improve tests coverage.
